@@ -3,11 +3,15 @@ using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private float radius = 0.5f;
     public Transform middlePoint;
+    public GameObject enemyPefab;
+    public GameObject allyPefab;
+    public bool enemySpawner;
+
+    private float radius = 0.5f;
     private Vector3 merkez;
     private int currentNumber;
-    public GameObject enemyPefab;
+
     public int count;
     [SerializeField] private TextMeshPro currentNumberText;
 
@@ -21,7 +25,14 @@ public class EnemySpawner : MonoBehaviour
         currentNumber = 1;
         merkez = new Vector3(middlePoint.position.x, 1.2447f, middlePoint.position.z);
 
-        FillPool(pool, enemyPefab, poolCount);
+        if (enemySpawner)
+        {
+            FillPool(pool, enemyPefab, poolCount);
+        }
+        else
+        {
+            FillPool(pool, allyPefab, poolCount);
+        }
         var enemy = pool.Pop();
         enemy.transform.position = merkez;
         enemy.transform.parent = middlePoint;
