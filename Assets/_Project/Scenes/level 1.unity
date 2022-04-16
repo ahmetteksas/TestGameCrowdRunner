@@ -144,7 +144,7 @@ PrefabInstance:
     - target: {fileID: 6521426547645953923, guid: 4b0ea28e49669704992047c819bac2a4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0716832
+      value: -0.00000071525574
       objectReference: {fileID: 0}
     - target: {fileID: 6521426547645953923, guid: 4b0ea28e49669704992047c819bac2a4,
         type: 3}
@@ -154,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 6521426547645953923, guid: 4b0ea28e49669704992047c819bac2a4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 54.650963
+      value: 84.11308
       objectReference: {fileID: 0}
     - target: {fileID: 6521426547645953923, guid: 4b0ea28e49669704992047c819bac2a4,
         type: 3}
@@ -195,6 +195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150750336781142731, guid: 4b0ea28e49669704992047c819bac2a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b0ea28e49669704992047c819bac2a4, type: 3}
@@ -1002,6 +1007,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6200359621826765452, guid: b900a1a36402b4bdb9888a2994357a8a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200359621903651210, guid: b900a1a36402b4bdb9888a2994357a8a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6229608465791687293, guid: b900a1a36402b4bdb9888a2994357a8a,
         type: 3}
       propertyPath: finishPoint
@@ -1173,8 +1188,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736432618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0516832, y: -1.7475915, z: 31.930962}
-  m_LocalScale: {x: 20, y: 1, z: 40.440365}
+  m_LocalPosition: {x: 0, y: -1.7475915, z: 46.61308}
+  m_LocalScale: {x: 20, y: 1, z: 70}
   m_Children: []
   m_Father: {fileID: 730069462}
   m_RootOrder: 0
@@ -1357,7 +1372,7 @@ PrefabInstance:
     - target: {fileID: 5946956934337644352, guid: 1a06f77818c495748ba2d52be35ea853,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 105.79
+      value: 134.33904
       objectReference: {fileID: 0}
     - target: {fileID: 5946956934337644352, guid: 1a06f77818c495748ba2d52be35ea853,
         type: 3}
