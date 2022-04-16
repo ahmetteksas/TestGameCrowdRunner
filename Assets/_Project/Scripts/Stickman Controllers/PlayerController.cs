@@ -35,18 +35,18 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         EventManager.startGame += GameStart;
-        EventManager.stopWalk += stopWalk;
-        EventManager.continueWalk += continueWalk;
-        EventManager.stopSlide += stopSlide;
+        EventManager.stopWalk += StopWalk;
+        EventManager.continueWalk += ContinueWalk;
+        EventManager.stopSlide += StopSlide;
         EventManager.triggerFinishCamera += TriggerFinishCamera;
     }
 
     private void OnDisable()
     {
         EventManager.startGame -= GameStart;
-        EventManager.stopWalk -= stopWalk;
-        EventManager.continueWalk -= continueWalk;
-        EventManager.stopSlide -= stopSlide;
+        EventManager.stopWalk -= StopWalk;
+        EventManager.continueWalk -= ContinueWalk;
+        EventManager.stopSlide -= StopSlide;
         EventManager.triggerFinishCamera -= TriggerFinishCamera;
     }
     private void Start()
@@ -161,15 +161,15 @@ public class PlayerController : MonoBehaviour
     {
         start = true;
     }
-    private void stopWalk()
+    public void StopWalk()
     {
         stop = true;
     }
-    private void continueWalk()
+    private void ContinueWalk()
     {
         stop = false;
     }
-    private void stopSlide()
+    private void StopSlide()
     {
         finish = true;
     }

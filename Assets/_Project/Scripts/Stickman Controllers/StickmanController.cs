@@ -3,7 +3,11 @@ using UnityEngine.AI;
 
 public class StickmanController : MonoBehaviour
 {
+    [SerializeField] private GameObject item1;
+    [SerializeField] private GameObject item2;
+    [SerializeField] private GameObject item3;
 
+    private int itemNumber;
     private bool fight;
     private Transform stickman;
     private Transform enemy;
@@ -21,7 +25,7 @@ public class StickmanController : MonoBehaviour
     }
     private void Start()
     {
-        stickman = this.transform;
+        stickman = transform;
         fight = false;
     }
 
@@ -34,7 +38,7 @@ public class StickmanController : MonoBehaviour
     {
 
         NavMeshAgent[] navMeshAgents;
-        navMeshAgents = this.transform.parent.GetComponentsInChildren<NavMeshAgent>();
+        navMeshAgents = transform.parent.GetComponentsInChildren<NavMeshAgent>();
 
         foreach (NavMeshAgent child in navMeshAgents)
         {
@@ -84,6 +88,22 @@ public class StickmanController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("item"))
+        {
+            itemNumber = Random.Range(0, 3);
+            if (itemNumber == 0)
+            {
+                item1.SetActive(true);
+            }
+            else if (itemNumber == 1)
+            {
+                item2.SetActive(true);
+            }
+            else
+            {
+                item3.SetActive(true);
+            }
+        }
         if (other.CompareTag("enemy"))
         {
 
@@ -126,8 +146,8 @@ public class StickmanController : MonoBehaviour
         }
         if (other.CompareTag("navmeshOffTrigger"))
         {
-            this.GetComponent<NavMeshAgent>().enabled = false;
-            this.GetComponent<Rigidbody>().drag = 0;
+            GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<Rigidbody>().drag = 0;
         }
     }
 
@@ -135,8 +155,8 @@ public class StickmanController : MonoBehaviour
     {
         if (other.CompareTag("navmeshOffTrigger"))
         {
-            this.GetComponent<NavMeshAgent>().enabled = true;
-            this.GetComponent<Rigidbody>().drag = 30;
+            GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<Rigidbody>().drag = 30;
         }
     }
 }
