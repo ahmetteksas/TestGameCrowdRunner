@@ -1002,16 +1002,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6200359621826765452, guid: b900a1a36402b4bdb9888a2994357a8a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200359621903651210, guid: b900a1a36402b4bdb9888a2994357a8a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6229608465791687293, guid: b900a1a36402b4bdb9888a2994357a8a,
         type: 3}
       propertyPath: finishPoint
@@ -1340,14 +1330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 153282206, guid: 1a06f77818c495748ba2d52be35ea853, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429216404, guid: 1a06f77818c495748ba2d52be35ea853, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 876730410, guid: 1a06f77818c495748ba2d52be35ea853, type: 3}
       propertyPath: winGamePanel
       value: 
