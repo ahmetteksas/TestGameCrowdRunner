@@ -11,14 +11,14 @@ public class FinishStickmanController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FinishFloorUpTrigger"))
-        {
-            transform.parent = null;
-            transform.GetComponent<FinishStickmanController>().enabled = false;
-        }
-        else if (other.CompareTag("Stop"))
-        {
-            EventManager.winGame.Invoke();
-        }
+        //if (other.CompareTag("FinishFloorUpTrigger"))
+        //{
+        //    transform.parent = null;
+        //    transform.GetComponent<FinishStickmanController>().enabled = false;
+        //}
+        //else if (other.CompareTag("Stop"))
+        //{
+        //    EventManager.winGame.Invoke();
+        //}
     }
 }

@@ -2,9 +2,14 @@
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using ScriptableObjectArchitecture;
+using DG.Tweening;
 
 public class Spawner : MonoBehaviour
 {
+    public GameEventBase finishEvent;
+
+    [SerializeField] private Transform bossEnemy;
     private float radius = 0.5f;
     [SerializeField] private Transform middlePoint;
     private Vector3 merkez;
@@ -158,14 +163,14 @@ public class Spawner : MonoBehaviour
         EventManager.stopSlide.Invoke();
         point = new Vector3(middlePoint.position.x, middlePoint.position.y, middlePoint.position.z);
         StickmanController[] _transform;
-        _transform = this.GetComponentsInChildren<StickmanController>();
+        _transform = GetComponentsInChildren<StickmanController>();
 
         foreach (StickmanController child in _transform)
         {
             EventManager.playerPool.Push(child.gameObject);
             //Destroy(child.gameObject);
         }
-        Destroy(this.gameObject.transform.GetChild(0).gameObject);
+        //Destroy(gameObject.transform.GetChild(0).gameObject);
 
         while (count < currentNumber)
         {
@@ -178,24 +183,9 @@ public class Spawner : MonoBehaviour
             arakat = count - currentNumber;
             kat--;
         }
+        finishEvent.Raise();
+        //StartCoroutine(StartFinish());
 
-        StartCoroutine(StartFinish());
-
-    }
-    private IEnumerator StartFinish()
-    {
-        EventManager.triggerFinishCamera.Invoke();
-        for (int i = kat; i > 0; i--)
-        {
-            if (arakat == i)
-            {
-                Diz(arakat);
-                yield return new WaitForSeconds(0.3f);
-            }
-            Diz(i);
-            yield return new WaitForSeconds(0.3f);
-        }
-        kat++;
     }
 
     private IEnumerator CloseGravity(GameObject _object)
@@ -203,45 +193,13 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         _object.GetComponent<Rigidbody>().useGravity = false;
     }
-    private void Diz(int i)
-    {
-        if ((i % 2) == 0 && (i > 0))
-        {
-            float k = ((-1) * 0.65f * ((i / 2) - 1)) - 0.325f;
-            for (int x = 0; x < i; x++)
-            {
-                point = new Vector3(k, point.y, middlePoint.position.z);
-                var stickman = EventManager.playerPool.Pop();  //Instantiate(finishPrefab, _point, Quaternion.identity) as GameObject;
-                stickman.transform.position = point;
-                stickman.transform.rotation = Quaternion.identity;
-                Destroy(stickman.GetComponent<StickmanController>());
-                Destroy(stickman.GetComponent<NavMeshAgent>());
-                stickman.GetComponent<Rigidbody>().drag = 0;
-                stickman.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-                stickman.AddComponent(typeof(FinishStickmanController));
-                stickman.transform.parent = middlePoint;
-                k += 0.65f;
-            }
-        }
-        else if ((i % 2) != 0 && (i > 0))
-        {
-            float k = (-1) * 0.65f * (i / 2);
-            for (int x = 0; x < i; x++)
-            {
-                point = new Vector3(k, point.y, middlePoint.position.z);
-                var stickman = EventManager.playerPool.Pop();  //Instantiate(finishPrefab, _point, Quaternion.identity) as GameObject;
-                stickman.transform.position = point;
-                stickman.transform.rotation = Quaternion.identity;
-                Destroy(stickman.GetComponent<StickmanController>());
-                Destroy(stickman.GetComponent<NavMeshAgent>());
-                stickman.GetComponent<Rigidbody>().drag = 0;
-                stickman.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-                stickman.AddComponent(typeof(FinishStickmanController));
-                stickman.transform.parent = middlePoint;
-                k += 0.65f;
-            }
-        }
 
-        point = new Vector3(0, point.y + 1.85f, middlePoint.position.z);
+    public void FinalFight()
+    {
+        for (int i = 0; i < kat; i++)
+        {
+            var stickman = EventManager.playerPool.Pop();  //Instantiate(finishPrefab, _point, Quaternion.identity) as GameObject;
+            stickman.transform.DOMove(bossEnemy.position, 2f);
+        }
     }
 }
