@@ -16,6 +16,8 @@ TagManager:
   - item
   - add
   - ally
+  - changecolor
+  - boss
   layers:
   - Default
   - TransparentFX

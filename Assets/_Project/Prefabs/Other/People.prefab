@@ -360,6 +360,7 @@ MonoBehaviour:
   item1: {fileID: 411133478286051132}
   item2: {fileID: 1758358412052787480}
   item3: {fileID: 6581880388868566758}
+  blueMaterial: {fileID: 2100000, guid: 13ab7da16c51ec74fac12e63798040e1, type: 2}
 --- !u!1 &6581880388868566758
 GameObject:
   m_ObjectHideFlags: 0

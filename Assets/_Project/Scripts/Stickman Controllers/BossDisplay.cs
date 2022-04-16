@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class BossDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject winGamePanel;
+    [SerializeField] private GameObject loseGamePanel;
+
 
     private Slider heal;
     private Animator animBase;
@@ -19,13 +21,17 @@ public class BossDisplay : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            heal.value++;
-            other.gameObject.SetActive(false);
+            heal.value += other.gameObject.GetComponent<StickmanController>().damage;
             if (heal.value == 1)
             {
                 animBase.SetTrigger("Death");
                 winGamePanel.SetActive(true);
             }
+            else
+            {
+                loseGamePanel.SetActive(true);
+            }
+            other.gameObject.SetActive(false);
         }
     }
 }

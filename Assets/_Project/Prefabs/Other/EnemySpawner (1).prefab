@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   middlePoint: {fileID: 2725065036854123372}
-  enemyPefab: {fileID: 1895779940679965604, guid: 1e624d720ee5d224a97797174885ba13,
+  enemyPefab: {fileID: 0}
+  allyPefab: {fileID: 6578659902209250476, guid: 76a20b2a1e837104e9cd2f7eddf8bed7,
     type: 3}
-  allyPefab: {fileID: 0}
+  enemySpawner: 0
   count: 20
   currentNumberText: {fileID: 2725065038455824840}
 --- !u!135 &6444631514363663365

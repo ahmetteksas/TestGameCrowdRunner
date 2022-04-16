@@ -6,17 +6,23 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private GameObject item1;
     [SerializeField] private GameObject item2;
     [SerializeField] private GameObject item3;
+    [SerializeField] private Material blueMaterial;
 
+    public static bool changeColor;
     private int itemNumber;
+    public float damage;
     private bool fight;
     private Transform stickman;
     private Transform enemy;
     private bool justOne = true;
     private bool justOneAgain = true;
+    Spawner spawner;
+
 
     private void OnEnable()
     {
         EventManager.startRunAnim += GameStart;
+        spawner = FindObjectOfType<Spawner>();
     }
 
     private void OnDisable()
@@ -32,6 +38,22 @@ public class StickmanController : MonoBehaviour
     private void Update()
     {
         transform.LookAt(Vector3.forward);
+        if (changeColor)
+        {
+            GetComponentInChildren<SkinnedMeshRenderer>().material = blueMaterial;
+        }
+        if (highDamage)
+        {
+            damage = .1f;
+        }
+        else if (mediumDamage)
+        {
+            damage = .05f;
+        }
+        else
+        {
+            damage = .01f;
+        }
     }
 
     private void Fight()
@@ -86,6 +108,10 @@ public class StickmanController : MonoBehaviour
     {
     }
 
+
+    private bool lowDamage;
+    private bool mediumDamage;
+    private bool highDamage;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("item"))
@@ -94,14 +120,20 @@ public class StickmanController : MonoBehaviour
             if (itemNumber == 0)
             {
                 item1.SetActive(true);
+                highDamage = true;
+                damage = .1f;
             }
             else if (itemNumber == 1)
             {
                 item2.SetActive(true);
+                mediumDamage = true;
+                damage = .05f;
             }
             else
             {
                 item3.SetActive(true);
+                lowDamage = true;
+                damage = .01f;
             }
         }
         if (other.CompareTag("enemy"))
@@ -148,6 +180,31 @@ public class StickmanController : MonoBehaviour
         {
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<Rigidbody>().drag = 0;
+        }
+        if (other.CompareTag("ally"))
+        {
+            spawner.Addition(1);
+            other.gameObject.SetActive(false);
+        }
+        if (other.CompareTag("changecolor"))
+        {
+            changeColor = true;
+            //GetComponentInChildren<SkinnedMeshRenderer>().material = blueMaterial;
+        }
+        if (other.CompareTag("boss"))
+        {
+            if (itemNumber == 0)
+            {
+                damage = .1f;
+            }
+            else if (itemNumber == 1)
+            {
+                damage = .05f;
+            }
+            else
+            {
+                damage = .01f;
+            }
         }
     }
 

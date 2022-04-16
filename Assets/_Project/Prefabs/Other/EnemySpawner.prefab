@@ -351,6 +351,8 @@ MonoBehaviour:
   middlePoint: {fileID: 8988778043125069378}
   enemyPefab: {fileID: 1895779940679965604, guid: 1e624d720ee5d224a97797174885ba13,
     type: 3}
+  allyPefab: {fileID: 0}
+  enemySpawner: 1
   count: 20
   currentNumberText: {fileID: 8988778041496095974}
 --- !u!135 &1864710443

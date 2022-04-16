@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour
         currentNumberText.text = currentNumber.ToString();
     }
 
-    private void FillPool(ObjectPool pool, GameObject prefab, int count)
+    public void FillPool(ObjectPool pool, GameObject prefab, int count)
     {
         pool.SetObject(prefab);
         pool.Fill(count);
@@ -80,7 +80,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void Addition(int add)
+    public void Addition(int add)
     {
         currentNumber += add;
         UpdateCount(currentNumber);
