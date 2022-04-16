@@ -191,21 +191,6 @@ public class StickmanController : MonoBehaviour
             changeColor = true;
             //GetComponentInChildren<SkinnedMeshRenderer>().material = blueMaterial;
         }
-        if (other.CompareTag("boss"))
-        {
-            if (itemNumber == 0)
-            {
-                damage = .1f;
-            }
-            else if (itemNumber == 1)
-            {
-                damage = .05f;
-            }
-            else
-            {
-                damage = .01f;
-            }
-        }
     }
 
     void OnTriggerExit(Collider other)

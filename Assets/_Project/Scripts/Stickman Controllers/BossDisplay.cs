@@ -29,7 +29,10 @@ public class BossDisplay : MonoBehaviour
             }
             else
             {
-                loseGamePanel.SetActive(true);
+                if (other.gameObject.GetComponent<StickmanController>() == null)
+                {
+                    loseGamePanel.SetActive(true);
+                }
             }
             other.gameObject.SetActive(false);
         }
