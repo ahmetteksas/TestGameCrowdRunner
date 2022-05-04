@@ -151,6 +151,13 @@ public class StickmanController : MonoBehaviour
             justOneAgain = false;
 
         }
+        if (other.CompareTag("add"))
+        {
+            //Fight();
+            other.GetComponent<EnemyController>().Fight(stickman);
+            justOneAgain = false;
+
+        }
         else if (other.CompareTag("barrier"))
         {
 

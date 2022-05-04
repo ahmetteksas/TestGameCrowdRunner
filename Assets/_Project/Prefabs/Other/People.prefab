@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.313, z: 0.3563}
   m_LocalScale: {x: 0.73, y: 0.3730465, z: 0.46587387}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2574589672879453305}
   m_RootOrder: 1
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -124,6 +126,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.313, z: 0.3563}
   m_LocalScale: {x: 0.73, y: 0.3730465, z: 0.46587387}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2574589672879453305}
   m_RootOrder: 2
@@ -147,6 +150,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -223,6 +227,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.2447, z: 0}
   m_LocalScale: {x: 1, y: 0.75057495, z: 1.0000024}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7636800286600864865}
   - {fileID: 3495307711796596806}
@@ -250,6 +255,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -361,6 +367,7 @@ MonoBehaviour:
   item2: {fileID: 1758358412052787480}
   item3: {fileID: 6581880388868566758}
   blueMaterial: {fileID: 2100000, guid: 13ab7da16c51ec74fac12e63798040e1, type: 2}
+  damage: 0
 --- !u!1 &6581880388868566758
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +397,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.313, z: 0.3563}
   m_LocalScale: {x: 0.73, y: 0.3730465, z: 0.46587387}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2574589672879453305}
   m_RootOrder: 3
@@ -413,6 +421,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

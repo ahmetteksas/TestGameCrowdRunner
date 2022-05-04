@@ -193,13 +193,18 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         _object.GetComponent<Rigidbody>().useGravity = false;
     }
-
+    Vector3 _offset;
+    float _offsetY;
+    float _offsetX;
     public void FinalFight()
     {
         for (int i = 0; i < kat; i++)
         {
             var stickman = EventManager.playerPool.Pop();  //Instantiate(finishPrefab, _point, Quaternion.identity) as GameObject;
-            stickman.transform.DOMove(bossEnemy.position, 2f);
+            _offsetY = Random.Range(-5f, 5f);
+            _offsetX = Random.Range(-2f, 2f);
+            _offset = new Vector3(_offsetX, _offsetY, 0);
+            stickman.transform.DOMove(bossEnemy.position + _offset, 2f);
         }
     }
 }
